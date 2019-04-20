@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="text-align: center">Seus Lanches !</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="row" style="text-align: center;" *ngFor="let sandwiches of sandwichesSelecteds;">
+    <div class="col card" style="margin: 5px; padding: 10px">
+      {{sandwiches.name}}
+      <p style="margin-top: 40px"> Adicionar ingrediente extra ? </p>
+      <div class="row" style="padding: 10px">
+        <div class="col" *ngFor="let ingredient of sandwiches.extraIngredients">
+          <div class="row" style="margin-left: 10px">
+            {{ingredient.name}}
+          </div>
+          <div class="row" style="align-items: flex-end;">
+            <input [(ngModel)]="ingredient.quantity" style="text-align: center;width: 30px; border-radius: 4px; margin: 5px 0"
+              disabled="true" />
+            <fa-icon [icon]="plusCircle" style="margin: 8px 5px" (click)="add(ingredient)"></fa-icon>
+            <fa-icon *ngIf="ingredient.quantity > 0" [icon]="minus" style="margin: 8px 5px" (click)="remove(ingredient)"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+  <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+</div>
+
+
+
+
+
+<div class="my-container">
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+      <h3>
+        Loading...
+      </h3>
+      <!-- <button (click)="showAlert()">
+        Click me!
+      </button> -->
+    </div>
+  </ng-template>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+</div>
