@@ -1,17 +1,15 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: navajowhite" >
 
   <div>
-    <img src="../../assets/imgs/prototypeImage.png" style="    width: 100%; height: 250px;" />
+    <img src="../../assets/imgs/image4.png" style="    width: 100%; height: 300px;" />
   </div>
 
-  <div class="row">
+  <div class="row" >
     <div class="col">
-
-      <div (click)="selecSandwiche(i, sandwiche)" attr.id="item{{i}}" class="card" *ngFor="let sandwiche of items; let i = index"
-        style="text-align: center; margin: 20px 0; padding: 10px">
+      <div (click)="selecSandwiche(index, sandwiche)" attr.id="item{{index}}" class="card" *ngFor="let sandwiche of items; let index = index"
+        style="width: 80%;text-align: center; padding: 10px;margin: 20px auto;">
         <input type="checkbox" style="display: none" [(ngModel)]="sandwiche.selected">
-        {{sandwiche.name}}
-        <img src="../../assets/imgs/prototypeImage.png" style="align-self: center;" width="300px" height="200px" />
+          <h3>{{sandwiche.name}}</h3>
         <P style="font-weight: bold">Ingredientes</P>
         <div class="row" style="padding: 10px">
           <div class="col" *ngFor="let ingredient of sandwiche.ingredients">
@@ -19,13 +17,24 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- Button trigger modal -->
-  <button type="button" (click)="open()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
+  <button style="background-color: #951717;border-color: #edf504;display: block;margin: 0 auto;margin-bottom: 20px;"
+          type="button" (click)="open()" 
+          class="btn btn-primary" 
+          data-toggle="modal" data-target="#exampleModal">
+    Finalizar ou adicionar ingredientes extras
   </button>
 
+</div>
+
+
+<div class="my-container">
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+    </div>
+  </ng-template>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 </div>

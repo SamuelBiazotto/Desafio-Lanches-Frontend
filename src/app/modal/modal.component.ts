@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
 
   @Input() sandwichesSelecteds;
   ingredients: any = [];
-  loading = false;
+  loading = true;
   orderArray = [];
   minus = faMinus;
   plusCircle = faPlusCircle;
@@ -28,16 +28,19 @@ export class ModalComponent implements OnInit {
     this.sandwichesSelecteds.forEach(element => {
       this.orderArray.push({ sandwiches: element, extraIngredients: [] });
     });
+
     this.http.get(url + '/ingredients').subscribe(response => {
       this.ingredients = response;
       this.ingredients.map(ingredient => {
         ingredient.quantity = 0;
       })
-
       this.sandwichesSelecteds.map(sandwiche => {
         sandwiche.extraIngredients = JSON.parse(JSON.stringify(this.ingredients));
-
+        this.loading = false
       })
+    },error => {
+        console.log(error);
+        this.loading = false;
     })
   }
 
@@ -62,6 +65,7 @@ export class ModalComponent implements OnInit {
     console.log(this.orderArray);
     this.http.post(url + 'orders', this.orderArray).subscribe(response => {
       this.loading = false;
+      this.activeModal.close();
       const modalRef = this.modalService.open(FinalModalComponent, { size: 'lg' });
       modalRef.componentInstance.order = response;
 

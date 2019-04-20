@@ -12,10 +12,14 @@ import { url } from '../../environments/environment';
 export class HomeComponent implements OnInit {
 
   items;
+  loading = true;
+
+
   constructor(private httpClient: HttpClient, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.httpClient.get(url + 'sandwiches').subscribe(response => {
+      this.loading = false
       console.log(response);
       this.items = response;
       this.items.map(item => {
