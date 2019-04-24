@@ -28,7 +28,9 @@ Somos uma startup do ramo de alimentos e precisamos de uma aplicação web para 
 ## Execução 
 
 * Clonar este repositório: https://github.com/SamuelBiazotto/Desafio-Lanches-Frontend.git
-* Ler o restante do READEME.md presente neste github no repositorio: Desafio-Lanches-Backend.
+* Execute: npm install
+* Execute: ng build
+* Ler o restante do READEME.md presente neste github no repositório: Desafio-Lanches-Backend.
 
 
 
