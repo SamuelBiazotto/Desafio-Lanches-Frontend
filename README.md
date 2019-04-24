@@ -13,7 +13,6 @@ Somos uma startup do ramo de alimentos e precisamos de uma aplicação web para 
 * Criação de um componente para escolha de ingredientes extras;
 * Criação de um componente para informar os lanches pedidos e seus respectivos os valores e o valor total do pedido;
 * Criação e configuração de um container docker para o frontend juntamente com Nginx
-* 
 
 ## Necessário
 
