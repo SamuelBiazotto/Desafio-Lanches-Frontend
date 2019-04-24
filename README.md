@@ -18,6 +18,8 @@ Somos uma startup do ramo de alimentos e precisamos de uma aplicação web para 
 ## Necessário
 
 * Angular 7;
+* Node;
+* Npm;
 * Docker;
 * Nginx;
 * Angular CLI;
