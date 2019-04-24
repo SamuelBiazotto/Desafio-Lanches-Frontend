@@ -31,7 +31,7 @@ Somos uma startup do ramo de alimentos e precisamos de uma aplicação web para 
 * Execute: cd Desafio-Lanches-Frontend;
 * Execute: npm install
 * Execute: ng build
-* Ler o restante do READEME.md presente neste github no repositório: Desafio-Lanches-Backend.
+* Ler o restante do README.md presente neste github no repositório: Desafio-Lanches-Backend.
 
 
 
